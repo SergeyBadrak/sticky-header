@@ -7,33 +7,40 @@
 
 
 const header = document.querySelector(".sticky-header");
-const headerH = header.offsetHeight;
-const offset = 0; // offset on page scroll distance
-const toggleClass = "is-sticky";
 
-// prvent page from resizing after set header to fixed 
-// create empty holder element instead of header, to replace header height in page flow
-const holder = document.createElement('div');
-holder.className = "sticky-header-holder";
-// set holder height from header height
-holder.style.height = ( headerH + 'px' );
-// insert holder on the page after header
-header.after(holder);
+if (header != null) {
+     
+    // if header exist on the page
+    const headerH = header.offsetHeight;
+    const offset = 0; // offset on page scroll distance
+    const toggleClass = "is-sticky";
+
+    // prvent page from resizing after set header to fixed 
+    // create empty holder element instead of header, to replace header height in page flow
+    const holder = document.createElement('div');
+    holder.className = "sticky-header-holder";
+    // set holder height from header height
+    holder.style.height = ( headerH + 'px' );
+    // insert holder on the page after header
+    header.after(holder);
 
 
-window.addEventListener("scroll", () => {
+    window.addEventListener("scroll", () => {
 
-  const currentScroll = window.scrollY;
+      const currentScroll = window.scrollY;
 
-  if ( currentScroll > (headerH + offset) ) {
+      if ( currentScroll > (headerH + offset) ) {
 
-    header.classList.add(toggleClass);
-    holder.classList.add(toggleClass);
+        header.classList.add(toggleClass);
+        holder.classList.add(toggleClass);
 
-  } else {
-    header.classList.remove(toggleClass);
-    holder.classList.remove(toggleClass);
-  }
+      } else {
+        header.classList.remove(toggleClass);
+        holder.classList.remove(toggleClass);
+      }
 
-});
+    });
+    
+}
+
 
