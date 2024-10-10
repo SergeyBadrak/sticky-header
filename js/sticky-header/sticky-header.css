@@ -1,0 +1,29 @@
+.sticky-header.is-sticky {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+    animation: headerSlideDown 1.0s ease;
+  }
+  .sticky-header-holder {
+    display: none;
+    width: 1px;
+    height: 72px;
+    background-color: transparent;
+  }
+  .sticky-header-holder.is-sticky {
+    display: block;
+  }
+  
+  @keyframes headerSlideDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
